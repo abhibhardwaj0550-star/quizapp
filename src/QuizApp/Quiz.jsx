@@ -10,6 +10,8 @@ const Quiz = () => {
     let [score, setScore] = useState(0);
     let [result, setResult] = useState(false)
 
+    console.log("question", question)
+
     let Option1 = useRef(null);
     let Option2 = useRef(null);
     let Option3 = useRef(null);
@@ -18,6 +20,7 @@ const Quiz = () => {
     let option_array = [Option1, Option2, Option3, Option4]
 
     const CheckAns = (e, ans) => {
+
         if (lock === false) {
 
             if (question.ans === ans) {
@@ -32,6 +35,7 @@ const Quiz = () => {
             }
         }
     }
+    
     const next = () => {
         if (lock === true) {
             if (index === data.length - 1) {
@@ -62,7 +66,7 @@ const Quiz = () => {
         <div className='container'>
             <h1>Quiz App</h1>
             <hr />
-            {result ? <></> : <>
+            {result ? <> </> : <>
 
                 <h2>{index + 1}.{question.question} </h2>
                 <ul>
